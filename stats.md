@@ -90,7 +90,7 @@ defense = 3
 ## Humans.Magician --:
 
 health = 65
-attack = 2
+attack = 3
 defense = 2
 
 # Weapons
