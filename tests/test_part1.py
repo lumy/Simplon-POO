@@ -5,8 +5,7 @@ from part1.defender import Defender
 from part1.army import Army
 from part1.battlefield import Battlefield
 
-
-class TestPartOne(unittest.TestCase):
+class TestBaseModule(unittest.TestCase):
   def test_warrior(self):
     w = Warrior(10, 20)
     self.assertTrue(getattr(w, "presentation", False))
@@ -42,7 +41,6 @@ class TestPartOne(unittest.TestCase):
     w2 = Warrior(1, 21)
     self.assertFalse(fight(w, w2))
 
-
   def test_defender_units(self):
     k = Defender()
     self.assertTrue(issubclass(type(k), Warrior))
@@ -74,6 +72,7 @@ class TestPartOne(unittest.TestCase):
     battlefield = Battlefield()
     self.assertTrue(battlefield.simpleFight(army, army2))
     self.assertEqual(len(army2), 0)
+    self.assertEqual(len(army), 1)
     army = Army()
     army.addUnits(Warrior, 2)
     army.addUnits(Defender, 1)
@@ -83,4 +82,4 @@ class TestPartOne(unittest.TestCase):
     battlefield = Battlefield()
     self.assertFalse(battlefield.simpleFight(army, army2))
     self.assertEqual(len(army), 0)
-    self.assertEqual(len(army2), 2)
+    self.assertEqual(len(army2), 3)
